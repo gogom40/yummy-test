@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummy</title>
+    <link rel="shortcut icon" href="Assets/logo.png" type="image/x-icon" />
+
+    <!-- ~Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- #Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- !CSS Style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="position-relative">
+    <!--loading-->
+    <!-- <div class="loading">
+      <span class="loader"></span>
+   </div> -->
+    <!-- !nav -->
+    <div class="side-nav bg-black">
+      <div class="side-nav-inner p-3 position-relative text-light">
+        <ul class="list-unstyled mb-0 overflow-hidden pe-5 me-4 small">
+          <li id="searchLink" class="py-2 mb-2">
+            <span>Search</span>
+          </li>
+
+          <li id="categoriesLink" class="py-2 mb-2">
+            <span>Categories</span>
+          </li>
+
+          <li id="areaLink" class="py-2 mb-2">
+            <span>Area</span>
+          </li>
+
+          <li id="ingredientsLink" class="py-2">
+            <span>Ingredients</span>
+          </li>
+
+          <li id="contactUs" class="py-2">
+            <span>Contact us</span>
+          </li>
+        </ul>
+
+        <div class="nav-footer position-absolute mb-3 pe-5">
+          <div class="icons">
+            <i class="fa-brands fa-facebook me-1"></i>
+            <i class="fa-brands fa-x-twitter me-1"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="footer small">
+            <p>Copyright Â© 2019 All Rights <br />Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="menu" class="bg-white">
+        <img id="menuLogo" src="Assets/logo.png" alt="logo" />
+        <i id="openIcon" class="menuIcon fa-solid fa-bars fa-2x"></i>
+        <i id="closeIcon" class="menuIcon fa-solid fa-xmark fa-2x"></i>
+        <div id="contactIcon" class="text-center fs-5 d-flex flex-column">
+          <i class="fa-solid fa-globe mb-2"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </div>
+    <!-- end nav -->
+    <!-- seerch -->
+    <div id="search" class="pt-5 overflow-auto d-none">
+      <div class="container">
+        <div id="searchInputs" class="row g-3">
+          <div id="searchByName" class="col-md-6">
+            <div class="input-container">
+              <input
+                class="form-control border-1 border-light"
+                placeholder="Search By Name"
+                id="name"
+                type="text"
+                onkeyup="searchByName(this.value)"
+              />
+            </div>
+          </div>
+
+          <div id="searchByFLetter" class="col-md-6">
+            <div class="input-container">
+              <input
+                class="form-control border-1 border-light"
+                placeholder="Search By First Letter"
+                id="fLetter"
+                type="text"
+                maxlength="1"
+                onkeyup="searchByFLetter(this.value)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end seerch -->
+    <!-- home -->
+    <div id="home">
+      <div class="container-lg p-5">
+        <div id="data" class="row g-3"></div>
+      </div>
+    </div>
+    <!-- end home -->
+
+    <!-- cat -->
+    <div
+      id="categories"
+      class="bg-transparent p-5 overflow-auto w-100 h-100 d-none"
+    >
+      <div class="container-lg p-5">
+        <div id="categoriesList" class="row g-3"></div>
+      </div>
+    </div>
+    <!-- end cat -->
+    <!-- area -->
+    <div id="area" class="bg-transparent p-5 overflow-auto w-100 h-100">
+      <div class="container-lg p-5">
+        <div id="areaList" class="row g-3"></div>
+      </div>
+    </div>
+    <!-- end area -->
+    <!-- integrance -->
+    <div
+      id="ingredients"
+      class="w-100 h-100 bg-transparent rounded-3 shadow p-5 overflow-auto"
+    >
+      <div class="container-lg p-5">
+        <div id="ingredientsList" class="row g-3"></div>
+      </div>
+    </div>
+    <!-- end integrance -->
+    <!-- contact -->
+    <div
+      id="contact"
+      class="d-none ps-5 overflow-auto small bg-transparent w-100 h-100 min-vh-100 d-flex flex-column justify-content-center align-items-center g-3"
+    >
+      <div class="container ps-5">
+        <div class="row g-4 ps-5" id="contactInputs">
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Enter Your Name"
+                id="uName"
+                type="text"
+              />
+              <div id="nameWarning" class="alert alert-danger">
+                Special characters and numbers not allowed
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Enter Your Email"
+                id="email"
+                type="text"
+              />
+              <div id="emailWarning" class="alert alert-danger">
+                Email not valid *exemple@yyy.zzz
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Enter Your Phone"
+                id="phone"
+                type="tel"
+              />
+            </div>
+            <div id="phoneWarning" class="alert alert-danger">
+              Enter valid Phone Number
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Enter Your Age"
+                id="age"
+                type="number"
+              />
+            </div>
+
+            <div id="ageWarning" class="alert alert-danger">
+              Enter valid age
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Enter Your Password"
+                id="password"
+                type="password"
+              />
+            </div>
+
+            <div id="passwordWarning" class="alert alert-danger">
+              Enter valid password *Minimum eight characters, at least one
+              letter and one number:*
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="input-container">
+              <input
+                class="form-control"
+                placeholder="Repeat Your Password"
+                id="rePassword"
+                type="password"
+              />
+            </div>
+
+            <div id="rePasswordWarning" class="alert alert-danger">
+              Enter valid repassword
+            </div>
+          </div>
+          <button
+            id="submitBtn"
+            class="btn btn-outline-danger text-danger px-5 mt-5 disabled w-25 position-relative"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- &<details> -->
+
+    <div id="mealDetails" class="overflow-auto"></div>
+    <!-- js -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- js -->
+
+    <!-- jQuery -->
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery -->
+
+    <!-- ^<main.js> -->
+
+    <script src="main.js"></script>
+
+    <!-- ^</main.js> -->
+  </body>
+</html>
